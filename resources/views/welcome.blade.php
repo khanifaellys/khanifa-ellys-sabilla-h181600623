@@ -71,10 +71,6 @@
                         <a href="{{ url('/home') }}">Home</a>
 
                     @else
-                        <a href="{!! route('kategori_artikel.index') !!}">Kategori Artikel</a>
-                        <a href="{!! route('kategori_berita.index') !!}">Kategori Berita</a>
-                        <a href="{!! route('kategori_galeri.index') !!}">Kategori Galeri</a>
-                        <a href="{!! route('kategori_pengumuman.index') !!}">Kategori Pengumuman</a>
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
