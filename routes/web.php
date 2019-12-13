@@ -18,8 +18,28 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-//tugas read
-Route::get('/kategori_artikel','kategoriArtikelController@index')->name('kategori_artikel.index');
+
+
+Route::resource('kategori_artikel','KategoriArtikelController');
+
+Route::resource('kategori_berita','KategoriBeritaController');
+
+Route::resource('kategori_galeri','KategoriGalerilController');
+
+Route::resource('kategori_pengumuman','KategoriPengumumanController');
+
+
+
+Route::resource('artikel','artikelController');
+
+Route::resource('berita','beritaController');
+
+Route::resource('galeri','galeriController');
+
+Route::resource('pengumuman','pengumumanController');
+
+
+/*Route::get('/kategori_artikel','kategoriArtikelController@index')->name('kategori_artikel.index');
 Route::get('/kategori_artikel/create','KategoriArtikelController@create')->name('kategori_artikel.create');
 Route::post('/kategori_artikel','KategoriArtikelController@store')->name('kategori_artikel.store');
 Route::get('/kategori_artikel/{id}','KategoriArtikelController@show')->name('kategori_artikel.show');
@@ -28,7 +48,7 @@ Route::patch('/kategori_artikel/{id}','KategoriArtikelController@update')->name(
 Route::delete('/kategori_artikel/{id}','KategoriArtikelController@destroy')->name('kategori_artikel.destroy');
 
 
-Route::get('/kategori_berita','kategoriBeritaController@index')->name('kategori_berita.index');
+/*Route::get('/kategori_berita','kategoriBeritaController@index')->name('kategori_berita.index');
 Route::get('/kategori_berita/create','KategoriBeritaController@create')->name('kategori_berita.create');
 Route::post('/kategori_berita','KategoriBeritaController@store')->name('kategori_berita.store');
 Route::get('/kategori_berita/{id}','KategoriBeritaController@show')->name('kategori_berita.show');
@@ -87,7 +107,7 @@ Route::post('/pengumuman','PengumumanController@store')->name('pengumuman.store'
 Route::get('/pengumuman/{id}','PengumumanController@show')->name('pengumuman.show');
 Route::get('/pengumuman/{id}/edit', 'PengumumanController@edit')->name('pengumuman.edit');
 Route::patch('/pengumuman/{id}','PengumumanController@update')->name('pengumuman.update');
-Route::delete('/pengumuman/{id}','PengumumanController@destroy')->name('pengumuman.destroy');
+Route::delete('/pengumuman/{id}','PengumumanController@destroy')->name('pengumuman.destroy');*/
 
 
 Route::get('refresh_captcha', 'HomeController@refreshCaptcha') ->name('refresh_capthcha');
