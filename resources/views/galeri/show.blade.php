@@ -19,6 +19,16 @@
                         <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->nama !!}</label>
                     </div>
 
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">Keterangan</label>
+                        <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->keterangan !!}</label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">Path</label>
+                        <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->path !!}</label>
+                    </div>
+
                      <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">Users id</label>
                         <label class="col-md-8 col-form-label text-md-left">{!! $Galeri->users_id !!}</label>

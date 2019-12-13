@@ -4,7 +4,7 @@
      <label for="nama" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
      <div class="col-md-6">
-         <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autofocus>
+     {!! Form::text('nama', null, ['class'=>"form-control", 'require','autofocus']) !!}
 
          @error('nama')
         <span class="invalid-feedback" role="alert">
@@ -15,7 +15,7 @@
 </div>
 
 
-<input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" required autofocus>
+{!! Form::hidden('users_id', Auth::id()); !!}
 
                         <div class="col-md-0">
                             <div class="col-md-6 offset-md-4">

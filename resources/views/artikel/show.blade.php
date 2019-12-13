@@ -15,8 +15,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-4 col-form-label text-md-right">Nama</label>
-                        <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->nama !!}</label>
+                        <label class="col-md-4 col-form-label text-md-right">Judul</label>
+                        <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->judul !!}</label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">Isi</label>
+                        <label class="col-md-8 col-form-label text-md-left">{!! $Artikel->isi !!}</label>
                     </div>
 
                      <div class="form-group row">

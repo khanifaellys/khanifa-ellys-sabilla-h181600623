@@ -10,7 +10,8 @@
 
                 <div class="card-body">
 
-                    {!! Form::open(['route' => 'kategori_artikel.store', 'method' => 'post']) !!}
+                    
+                    {!! Form::model($kategoriArtikel, ['route' => ['kategori_artikel.update', $kategoriArtikel->id], 'method'=>'patch']) !!}
                         @include('kategori_artikel.form')
                     {!! Form::close() !!}
 

@@ -24,8 +24,10 @@ class BeritaController extends Controller
         return view('berita.show',compact('Berita'));
     }
     public function create(){
-        $kategori_berita=KategoriBerita::pluck('nama','id');
-        return view('berita.create', compact('kategori_berita'));
+        $kategoriBerita=kategoriBerita::pluck('nama','id');
+        $laravel=null;
+        
+        return view('berita.create', compact('kategoriBerita','laravel'));
     }
     public function store(Request $request){
         $input= $request->all();
@@ -33,5 +35,36 @@ class BeritaController extends Controller
         berita::create($input);
               
         return redirect(route('berita.index'));
+    }
+    public function edit($id){
+        $Berita=berita::find($id);
+        $kategoriBerita=kategoriBerita::pluck('nama','id');
+        $laravel=kategoriBerita::pluck('nama','id');
+
+        if(empty($Berita)){
+            return redirect (route('berita.index'));
+        }
+        return view('berita.edit', compact('Berita','kategoriBerita','laravel'));
+    }
+    public function update($id, Request $request){
+        $Berita=berita::find($id);
+        $input=$request->all();
+
+        if(empty($Berita)){
+            return redirect (route('berita.index'));
+        }
+        $Berita->update($input);
+
+        return redirect(route('berita.index'));
+    }
+
+    public function destroy($id){
+        $Berita=berita::find($id);
+
+        if(empty($Berita)){
+            return redirect (route('berita.index'));
+        }
+        $Berita->delete();
+        return redirect (route('berita.index'));
     }
 }

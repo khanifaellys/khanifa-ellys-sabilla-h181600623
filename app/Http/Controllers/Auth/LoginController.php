@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Http\Controllers\Auth\Request;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -18,11 +18,11 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    protected function validatelogin(Request $request)
+    protected function validateLogin(Request $request)
     {
         $request->validate([
             $this->username () => 'required|string',
-            'pasword' => 'required|string',
+            'password' => 'required|string',
             'captcha' => 'required|captcha',
         ]);
     }

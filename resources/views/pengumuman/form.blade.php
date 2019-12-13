@@ -3,7 +3,7 @@
     <label for="judul" class="col-md-2 col form-label text-md-right">{{__('Judul')}}</label>
 
     <div class="col-md-10">
-    <input id="judul"  type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
+    {!! Form::text('judul',null, ['class'=>"form-control", 'require', 'autofocus']) !!}
 
     @error('judul')
     <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
     <label for="kategori_pengumuman_id" class="col-md-2 col form-label text-md-right">{{__('Kategori pengumuman')}}</label>
 
     <div class="col-md-10">
-    {!! Form::select('kategori_pengumuman_id', $kategori_pengumuman,null, ["class"=> "form-control", "required"]) !!}
+    {!! Form::select('kategori_pengumuman_id', $kategoriPengumuman,$laravel, ["class"=> "form-control", "required"]) !!}
 
     @error('kategori_pengumuman_id')
     <span class="invalid-feedback" role="alert">

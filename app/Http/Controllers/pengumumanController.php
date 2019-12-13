@@ -24,8 +24,10 @@ class PengumumanController extends Controller
         return view('pengumuman.show',compact('Pengumuman'));
     }
     public function create(){
-        $kategori_pengumuman=KategoriPengumuman::pluck('nama','id');
-        return view('pengumuman.create', compact('kategori_pengumuman'));
+        $kategoriPengumuman=kategoriPengumuman::pluck('nama','id');
+        $laravel=null;
+        
+        return view('pengumuman.create', compact('kategoriPengumuman','laravel'));
     }
     public function store(Request $request){
         $input= $request->all();
@@ -33,5 +35,36 @@ class PengumumanController extends Controller
         pengumuman::create($input);
               
         return redirect(route('pengumuman.index'));
+    }
+    public function edit($id){
+        $Pengumuman=pengumuman::find($id);
+        $kategoriPengumuman=kategoriPengumuman::pluck('nama','id');
+        $laravel=kategoriPengumuman::pluck('nama','id');
+
+        if(empty($Pengumuman)){
+            return redirect (route('pengumuman.index'));
+        }
+        return view('pengumuman.edit', compact('Pengumuman','kategoriPengumuman','laravel'));
+    }
+    public function update($id, Request $request){
+        $Pengumuman=pengumuman::find($id);
+        $input=$request->all();
+
+        if(empty($Pengumuman)){
+            return redirect (route('pengumuman.index'));
+        }
+        $Pengumuman->update($input);
+
+        return redirect(route('pengumuman.index'));
+    }
+
+    public function destroy($id){
+        $Pengumuman=pengumuman::find($id);
+
+        if(empty($Pengumuman)){
+            return redirect (route('pengumuman.index'));
+        }
+        $Pengumuman->delete();
+        return redirect (route('pengumuman.index'));
     }
 }

@@ -24,8 +24,10 @@ class GaleriController extends Controller
         return view('galeri.show',compact('Galeri'));
     }
     public function create(){
-        $kategori_galeri=kategoriGaleri::pluck('nama','id');
-        return view('galeri.create', compact('kategori_galeri'));
+        $kategoriGaleri=kategoriGaleri::pluck('nama','id');
+        $laravel=null;
+        
+        return view('galeri.create', compact('kategoriGaleri','laravel'));
     }
     public function store(Request $request){
         $input= $request->all();
@@ -33,5 +35,36 @@ class GaleriController extends Controller
         galeri::create($input);
               
         return redirect(route('galeri.index'));
+    }
+    public function edit($id){
+        $Galeri=galeri::find($id);
+        $kategoriGaleri=kategoriGaleri::pluck('nama','id');
+        $laravel=kategoriGaleri::pluck('nama','id');
+
+        if(empty($Galeri)){
+            return redirect (route('galeri.index'));
+        }
+        return view('galeri.edit', compact('Galeri','kategoriGaleri','laravel'));
+    }
+    public function update($id, Request $request){
+        $Galeri=galeri::find($id);
+        $input=$request->all();
+
+        if(empty($Galeri)){
+            return redirect (route('galeri.index'));
+        }
+        $Galeri->update($input);
+
+        return redirect(route('galeri.index'));
+    }
+
+    public function destroy($id){
+        $Galeri=galeri::find($id);
+
+        if(empty($Galeri)){
+            return redirect (route('galeri.index'));
+        }
+        $Galeri->delete();
+        return redirect (route('galeri.index'));
     }
 }
