@@ -62,4 +62,5 @@ class kategoriBeritaController extends Controller
         $kategoriBerita->delete();
         return redirect (route('kategori_berita.index'));
     }
+    
 }

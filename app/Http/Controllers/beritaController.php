@@ -67,4 +67,5 @@ class BeritaController extends Controller
         $Berita->delete();
         return redirect (route('berita.index'));
     }
+    
 }

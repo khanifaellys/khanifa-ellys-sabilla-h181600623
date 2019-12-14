@@ -21,12 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('kategori_artikel','KategoriArtikelController');
+Route::get('kategori_artikel/trash','KategoriArtikelController@trash')->name('kategori_artikel.trash');
 
 Route::resource('kategori_berita','KategoriBeritaController');
 
-Route::resource('kategori_galeri','KategoriGalerilController');
+Route::resource('kategori_galeri','KategoriGaleriController');
 
 Route::resource('kategori_pengumuman','KategoriPengumumanController');
+
+
+
 
 
 
