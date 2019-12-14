@@ -30,9 +30,19 @@ class GaleriController extends Controller
         return view('galeri.create', compact('kategoriGaleri','laravel'));
     }
     public function store(Request $request){
-        $input= $request->all();
+        $input= $request->except('path');
 
-        galeri::create($input);
+        $Galeri=galeri::create($input);
+
+        if ($request->has('path')){
+            $file=$request->file('path');
+            $filename=$Galeri->id.'.'.$file->getClientOriginalExtension();
+            $path=$request->path->storeAs('public/galeri',$filename,'local');
+            $Galeri->path="storage". substr($path,strpos($path,'/'));
+            $Galeri->save();
+        }
+
+
               
         return redirect(route('galeri.index'));
     }

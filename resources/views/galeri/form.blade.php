@@ -45,6 +45,7 @@
     <input id="path"  type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required autofocus>
 
     <div class="col-md-10">
+    {!! Form::file('path',null,['class'=>'form-control']); !!}
     
     @error('path')
     <span class="invalid-feedback" role="alert">
@@ -66,7 +67,3 @@
     </div>
 </div>
 
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'keterangan' );
-</script>
